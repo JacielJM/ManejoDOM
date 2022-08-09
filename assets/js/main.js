@@ -58,18 +58,18 @@ Metodos modernos
 */
 
 // GET
-const elementID = document.getElementById('count1');
+// const elementID = document.getElementById('count1');
 
-const elementClass = document.getElementsByClassName('parrafis');
+// const elementClass = document.getElementsByClassName('parrafis');
 
-const elementTag = document.getElementsByTagName('p');
-const elementName = document.getElementsByName('name');
+// const elementTag = document.getElementsByTagName('p');
+// const elementName = document.getElementsByName('name');
 
 // QUERY SELECTOR
 
-const queryS = document.querySelector('#count3');
-const queryS2 = document.querySelector('.parrafis');
-const queryS3 = document.querySelectorAll('.parrafis');
+// const queryS = document.querySelector('#count3');
+// const queryS2 = document.querySelector('.parrafis');
+// const queryS3 = document.querySelectorAll('.parrafis');
 
 /* 
  CREAR ELEMENTOS
@@ -85,19 +85,19 @@ const queryS3 = document.querySelectorAll('.parrafis');
  */
 
 // element --> etiquetas
-const nuevoDiv = document.createElement('div');
-const nuevoImg = document.createElement('img');
+// const nuevoDiv = document.createElement('div');
+// const nuevoImg = document.createElement('img');
 
-// texto
-const nuevoTexto = document.createTextNode('Hola, me gusta el café');
+// // texto
+// const nuevoTexto = document.createTextNode('Hola, me gusta el café');
 
-// clonar
-const pClonar = document.createElement('p');
-pClonar.textContent = 'Cloname';
+// // clonar
+// const pClonar = document.createElement('p');
+// pClonar.textContent = 'Cloname';
 
-const pClon = pClonar.cloneNode(true);
+// const pClon = pClonar.cloneNode(true);
 
-elementID.appendChild(pClonar);
+// elementID.appendChild(pClonar);
 
 /*
 
@@ -111,9 +111,9 @@ Son metodos que nos van a permitir hacer modificaciones a nuestros elementos den
 
 */
 
-pClonar.innerHTML = 'Hola, me gusta el café';
+// pClonar.innerHTML = 'Hola, me gusta el café';
 
-elementID.outerHTML;
+// elementID.outerHTML;
 
 /*
 INSERTAR ELEMENTOS
@@ -127,12 +127,75 @@ Son metodos que nos permiten poner la informacion que estaba en una memoria virt
 
 */
 
-const appendImg = document.createElement('img');
-appendImg.src = '/assets/images/geo_bicycle.jpg';
-appendImg.alt = 'bici animada';
+// const appendImg = document.createElement('img');
+// appendImg.src = '/assets/images/brilipe.jpeg';
+// appendImg.alt = 'bici animada';
 
-document.body.appendChild(appendImg);
+// document.body.appendChild(appendImg);
+// ('https://cdns-images.dzcdn.net/images/artist/098ea0886f463cf48b75d2af855ad3b9/500x500.jpg');
 
-const apParrafo = document.createElement('p');
-apParrafo.innerHTML = 'Parrafo hijo';
-document.body.appendChild(apParrafo);
+// const apParrafo = document.createElement('p');
+// apParrafo.innerHTML = 'Parrafo hijo';
+// document.body.appendChild(apParrafo);
+
+// remove
+
+//Explicacion: Primero creamos un elemento (etiqueta) llamada img (existe de forma virtual), le agregamos atributos como src y alt, y por ultimo conectamos al DOM usando el appendChild sobre nuestro document.body
+
+//Investigar remover child, replacer child y otras formas de agregarlos (antes, adyacente, a un lado, etc.).
+
+// const borrar = document.querySelector('#count4').remove();
+
+/**
+ * MODIFICACION DE ESTILOS (EN LINEA)
+ *
+ */
+
+// pClonar.setAttribute('id', 'café');
+// document.getElementById('café').style.color = 'silver';
+// document.getElementById('café').style.fontSize = '30px';
+// document.getElementById('café').style.fontWeight = 'bold';
+// document.getElementById('café').style.fontStyle = 'italic';
+// document.getElementById('café').style.textDecoration = 'underline';
+// document.getElementById('café').style.textAlign = 'center';
+// document.getElementById('café').style.textTransform = 'uppercase';
+// document.getElementById('café').style.letterSpacing = '2px';
+// document.getElementById('café').style.wordSpacing = '2px';
+
+/**
+ * *EVENTOS
+ *
+ * Una forma para modificar el contenido de un elemento mediante acciones o disparadores en un elemento.
+ *
+ * Algunos de los eventos más comunes son:
+ * - Click
+ * - Carga de página
+ * - Carga de imagen
+ * - Mouseover
+ * - inputchange
+ * - submit form
+ * - pulsacion de tecla
+ *
+ * ? Clasificación:
+ *
+ * 	!- Evento mediante HTML --> Mala práctica
+ *     <button onclick="alert('Holi')">Holi</button>
+ *
+ * 	!- Mediante el DOM (HTML + JS)
+ const boton = document.querySelector('.saludo');
+ boton.onclick = function () {
+	 alert('Holi desde JS');
+ };
+ 	Es una forma alternativa de gestionar eventos, creando HTML desde la API DOM (Pero es una trampa porque seguimos usando HTML para el uso del boton)
+
+En lugar de agregar el atributo onclick al boton, lo localizamos mediante un querySelector. Luego le asignamos una funcion con el codigo deseado, en este caso, una alerta.
+*
+* 	todo - eventListener --> THIS IS THE WAY
+*
+*	*Permite agregar una escucha del evento indicado (primer parametro), y en elcaso de que ocurra, se ejecuta la funcion asociada indicada (segundo parametro)
+ */
+
+const boton = document.querySelector('.saludo');
+boton.addEventListener('click', function () {
+	alert('Holi');
+});
